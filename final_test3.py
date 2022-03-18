@@ -19,7 +19,7 @@ def my_prediction(encoded_month,encoded_flat_type,encoded_storey_range,encoded_t
     from sklearn.preprocessing import PolynomialFeatures
     from sklearn.metrics import mean_absolute_error
     from sklearn.linear_model import Ridge
-    data = pd.read_csv('https://raw.githubusercontent.com/euniceczy/ee4802_assignment1/master/resale_flat_prices_based_on_registration_date_from_jan_2017_onwards.csv')
+    data = pd.read_csv('https://raw.githubusercontent.com/euniceczy/ee4802_testing1/master/resale_flat_prices_based_on_registration_date_from_jan_2017_onwards.csv')
     trim_data = data.drop(["block", "street_name", "remaining_lease"], axis=1) 
     trim_data.head(5)
     pipeline = ColumnTransformer([ ("o", OrdinalEncoder(), ["month","flat_type","storey_range"]), ("n", OneHotEncoder(), ["town", "flat_model"]), ], remainder='passthrough')
@@ -68,8 +68,8 @@ def my_prediction(encoded_month,encoded_flat_type,encoded_storey_range,encoded_t
     pred_rr = rr.predict(X_input)
     return pred_rr[0]
 
-data = pd.read_csv('https://raw.githubusercontent.com/euniceczy/ee4802_assignment1/master/resale_flat_prices_based_on_registration_date_from_jan_2017_onwards.csv')
-
+data = pd.read_csv('https://raw.githubusercontent.com/euniceczy/ee4802_testing1/master/resale_flat_prices_based_on_registration_date_from_jan_2017_onwards.csv')
+    
 #TITLE
 st.title("EE4802 Assignment 1 HDB Price Prediction")
 
